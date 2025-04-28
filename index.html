@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiran Shinde - Computer Engineering Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #1a365d;  /* Darker blue based on the outfit in image */
+            --secondary-color: #2c5282; /* Complementary blue */
+            --accent-color: #3182ce;   /* Lighter blue for highlights */
+            --dark-color: #1a202c;
+            --light-color: #f8fafc;
+            --success-color: #38a169;
+            --border-radius: 6px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            background-color: #f9fafb;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 50px 0 30px;
+            position: relative;
+        }
+        
+        nav {
+            background-color: var(--dark-color);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .header-content {
+            text-align: center;
+        }
+        
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Profile section styling */
+.profile-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 50px;
+}
+
+.profile-pic {
+    min-width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.02); /* Slight scale to ensure no white edges */
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+    .profile-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-pic {
+        min-width: 250px;
+        height: 250px;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+}
+        
+        .contact-info {
+            margin-top: 20px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info p i {
+            margin-right: 10px;
+            color: var(--primary-color);
+            width: 20px;
+            text-align: center;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .skill-tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: var(--accent-color);
+        }
+        
+        .education-item, .project-item, .experience-item {
+            background-color: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-bottom: 25px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .education-item:hover, .project-item:hover, .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-item h3 {
+            color: var(--primary-color);
+        }
+        
+        .date-range {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .date-range i {
+            margin-right: 5px;
+        }
+        
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .project-meta span {
+            background-color: #f0f4f8;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+        
+        .project-links {
+            margin-top: 15px;
+        }
+        
+        .project-links a {
+            display: inline-block;
+            margin-right: 10px;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .cert-item {
+            background-color: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+            border-top: 3px solid var(--primary-color);
+        }
+        
+        .cert-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .cert-item h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .cert-issuer {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: 2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+            font-weight: 500;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-details p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-details a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-details a:hover {
+            color: var(--accent-color);
+        }
+        
+        .skills-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 250px;
+            background-color: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #eee;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: var(--accent-color);
+            border-radius: 5px;
+        }
+        
+        .achievement {
+            margin-bottom: 15px;
+        }
+        
+        .achievement p {
+            margin: 5px 0;
+        }
+        
+        .achievements-container {
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .profile-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-pic {
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .skills-container {
+                flex-direction: column;
+            }
+        }
+        
+        /* Animation for page loading */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        section {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        /* Dark mode toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        body.dark-mode {
+            background-color: #121212;
+            color: #f5f5f5;
+        }
+        
+        body.dark-mode .education-item,
+        body.dark-mode .project-item,
+        body.dark-mode .cert-item,
+        body.dark-mode .skill-category {
+            background-color: #1e1e1e;
+            color: #f5f5f5;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        body.dark-mode h1, 
+        body.dark-mode h2, 
+        body.dark-mode h3 {
+            color: #f5f5f5;
+        }
+        
+        body.dark-mode .project-meta span {
+            background-color: #2d2d2d;
+            color: #ddd;
+        }
+        
+        /* Highlight animation */
+        .highlight {
+            position: relative;
+        }
+        
+        .highlight::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-color);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .highlight:hover::after {
+            transform: scaleX(1);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <h1>Kiran Shinde</h1>
+            <p>Computer Engineering Student | Java Developer | Machine Learning Enthusiast</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="profile-info">
+                <div class="profile-pic">
+                    <img src="image.jpg" alt="Kiran Shinde">
+                </div>
+                <div>
+                    <p>I am a Third year Computer Engineering student at MIT Academy of Engineering, Pune. Aspiring software engineer with a strong foundation in Java, object-oriented programming, data structures, and database management. Passionate about developing scalable and efficient applications.</p>
+                    <p>My goal is to leverage my technical skills and problem-solving abilities to create innovative solutions that make a difference. I am constantly exploring new technologies and methodologies to enhance my skills as a developer.</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra, India - 412105</p>
+                        <p><i class="fas fa-birthday-cake"></i> January 24, 2004</p>
+                        <p><i class="fas fa-language"></i> English, Hindi, Marathi</p>
+                    </div>
+                    <a href="#contact" class="btn"><i class="fas fa-envelope"></i> Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="education" style="background-color: #f0f5fa;">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <div class="date-range"><i class="fas fa-calendar-alt"></i> 2022 - 2026</div>
+                <h3>MIT Academy of Engineering, Pune</h3>
+                <p>B.Tech. - Computer Engineering</p>
+                <p><strong>CGPA:</strong> 8.80 / 10</p>
+                <p>Relevant coursework: Data Structures, Algorithms, Database Management Systems, Object-Oriented Programming, Web Development</p>
+            </div>
+            
+            <div class="education-item">
+                <div class="date-range"><i class="fas fa-calendar-alt"></i> 2021</div>
+                <h3>BK BIRLA COLLEGE, KALYAN</h3>
+                <p>12th Standard | MAHARASHTRA STATE BOARD</p>
+                <p><strong>Percentage:</strong> 91.17 / 100</p>
+                <p>Focused on Physics, Chemistry, and Mathematics</p>
+            </div>
+            
+            <div class="education-item">
+                <div class="date-range"><i class="fas fa-calendar-alt"></i> 2019</div>
+                <h3>PATIL BAL MANDIR, KALYAN</h3>
+                <p>10th Standard | MAHARASHTRA STATE BOARD</p>
+                <p><strong>Percentage:</strong> 84.60 / 100</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            
+            <div class="project-item">
+                <div class="date-range"><i class="fas fa-calendar-alt"></i> March 14, 2025 - April 3, 2025</div>
+                <h3>AI Resume Summarizer</h3>
+                <div class="project-meta">
+                    <span><i class="fas fa-users"></i> Team Size: 1</span>
+                    <span><i class="fas fa-code"></i> Technologies: Python, NLP, React</span>
+                </div>
+                <p>A complete resume enhancement tool that gives job seekers an edge and impresses recruiters with AI-powered personalization.</p>
+                <ul>
+                    <li>Implemented Natural Language Processing techniques to analyze resume content</li>
+                    <li>Created a user-friendly interface for resume uploads and processing</li>
+                    <li>Added personalized recommendations based on job descriptions</li>
+                </ul>
+              
+            </div>
+            
+            <div class="project-item">
+                <div class="date-range"><i class="fas fa-calendar-alt"></i> December 1, 2024 - January 2, 2025</div>
+                <h3>Typing Speed Calculator</h3>
+                <div class="project-meta">
+                    <span><i class="fas fa-user-tie"></i> Mentor: Amar Panchal</span>
+                    <span><i class="fas fa-users"></i> Team Size: 1</span>
+                    <span><i class="fas fa-code"></i> Technologies: JavaScript, HTML, CSS</span>
+                </div>
+                <p>Built a real-time typing speed and accuracy test that measures user performance.</p>
+                <p>Implemented randomized text generation and real-time timer for tracking speed.</p>
+                
+            </div>
+            
+            <div class="project-item">
+                <div class="date-range"><i class="fas fa-calendar-alt"></i> September 1, 2024 - November 14, 2024</div>
+                <h3>Medical Insurance Cost Prediction</h3>
+                <div class="project-meta">
+                    <span><i class="fas fa-user-tie"></i> Mentor: Mrs Sunita Barve</span>
+                    <span><i class="fas fa-users"></i> Team Size: 3</span>
+                    <span><i class="fas fa-code"></i> Technologies: Python, Scikit-learn, Pandas</span>
+                </div>
+                <p>Preprocessed real-world medical datasets and engineered meaningful features for prediction.</p>
+                <p>Implemented Regression models (Linear, Ridge, Lasso) and compared their performance.</p>
+                <p>Achieved high prediction accuracy by optimizing hyperparameters and visualizing data trends.</p>
+                
+            </div>
+            
+            <div class="project-item">
+                <div class="date-range"><i class="fas fa-calendar-alt"></i> September 1, 2023 - June 19, 2024</div>
+                <h3>College Recommendation System</h3>
+                <div class="project-meta">
+                    <span><i class="fas fa-user-tie"></i> Mentor: Ranjana Badre</span>
+                    <span><i class="fas fa-users"></i> Team Size: 3</span>
+                    <span><i class="fas fa-code"></i> Technologies: MySQL, PHP, Bootstrap</span>
+                </div>
+                <p>College recommendation System using database management system where we can get college based on student CET score.</p>
+                <ul>
+                    <li>Designed and implemented a comprehensive database schema for storing college information</li>
+                    <li>Created an algorithm to match student profiles with suitable colleges</li>
+                    <li>Built a user-friendly interface for students to input their preferences and scores</li>
+                </ul>
+              
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills" style="background-color: #f0f5fa;">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <p>Java</p>
+                    <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
+                    
+                    <p>Python</p>
+                    <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
+                    
+                    <p>JavaScript</p>
+                    <div class="progress-bar"><div class="progress" style="width: 75%"></div></div>
+                    
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    
+                    <p>ReactJS</p>
+                    <div class="progress-bar"><div class="progress" style="width: 80%"></div></div>
+                    
+                    <p>Node.js</p>
+                    <div class="progress-bar"><div class="progress" style="width: 75%"></div></div>
+                    
+                    <p>MongoDB</p>
+                    <div class="progress-bar"><div class="progress" style="width: 70%"></div></div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Others</h3>
+                    <p>Machine Learning</p>
+                    <div class="progress-bar"><div class="progress" style="width: 75%"></div></div>
+                    
+                    <p>Database Management</p>
+                    <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
+                    
+                    <p>Data Structures</p>
+                    <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
+                    
+                     </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="certifications" style="background-color: #f0f5fa;">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certifications">
+                <div class="cert-item">
+                    <h3>Introduction to Machine Learning</h3>
+                    <p class="cert-issuer">NPTEL</p>
+                    <p><strong>Score:</strong> 60/100</p>
+                    <p><strong>Completed:</strong> January 2025</p>
+                    <p>Learned fundamentals of machine learning algorithms and their applications.</p>
+                </div>
+                
+                <div class="cert-item">
+                    <h3>Introduction to Cybersecurity</h3>
+                    <p class="cert-issuer">Cisco Networking Academy</p>
+                    <p><strong>Completed:</strong> October 2024</p>
+                    <p>Gained understanding of cyber threats, vulnerabilities, and basic security principles.</p>
+                </div>
+                
+                <div class="cert-item">
+                    <h3>MERN Stack Application Development</h3>
+                    <p class="cert-issuer">Udemy</p>
+                    <p><strong>Completed:</strong> August 2024</p>
+                    <p><strong>Key Skills:</strong> ReactJS, Node.js, Express, MongoDB</p>
+                    <p>Built multiple web applications using the MERN stack technologies.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-details">
+                <p><i class="fas fa-phone"></i> <a href="tel:+918779686047">+91-8779686047</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:kiran.shinde@mitaoe.ac.in">kiran.shinde@mitaoe.ac.in</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:kiran.k.shinde2004@gmail.com">kiran.k.shinde2004@gmail.com</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Near MIT Academy of Engineering, Alandi, Pune, Maharashtra, India - 412105</p>
+                
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/kiran-shinde-7abb28264?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/kiranshinde24" target="_blank"><i class="fab fa-github"></i></a>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Kiran Shinde. All Rights Reserved.</p>
+            <p>Last Updated: April 2025</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add active class to current section in navigation
+        window.addEventListener('scroll', function() {
+            let scrollPosition = window.scrollY;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + sectionId) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Animation for skill bars on scroll
+        const skillSections = document.querySelectorAll('.skill-category');
+        
+        const showSkills = () => {
+            skillSections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (sectionTop < screenPosition) {
+                    const progressBars = section.querySelectorAll('.progress');
+                    progressBars.forEach(bar => {
+                        bar.style.transition = 'width 1s ease-out';
+                    });
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', showSkills);
+        
+        // Dark mode toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // Add animation to elements when they come into view
+        const animatedElements = document.querySelectorAll('.education-item, .project-item, .cert-item');
+        
+        const showElements = () => {
+            animatedElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementTop < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animation
+        animatedElements.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        window.addEventListener('scroll', showElements);
+        window.addEventListener('load', showElements);
+        
+        // Current year for footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const year = new Date().getFullYear();
+            document.querySelector('footer p').innerHTML = `&copy; ${year} Kiran Shinde. All Rights Reserved.`;
+        });
+    </script>
+</body>
+</html>
